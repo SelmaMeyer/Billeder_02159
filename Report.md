@@ -28,6 +28,18 @@ Implementation wise the struct 'Request' will contain a socket array holding up 
 
 ## Experiment Set-up
 
+The client configuration is as follows:
+
+- SERVER="192.168.101.10"
+- PORT=5003
+- SEED=345245
+- TOTAL=100
+- START=0
+- DIFFICULTY=3000000
+- REP_PROB_PERCENT=20
+- DELAY_US=750000
+- PRIO_LAMBDA=1.5
+
 ## Results
 
 ## Discussion
