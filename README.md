@@ -7,7 +7,9 @@ Hvis et hash er blevet cracked lægges det i hashtablet, og en efterfølgdene id
 
 I dette eksempel **(Eksempel 1)** ligger de to ens værdier tilpas langt fra hinanden. Det første 5 vil være blevet løst og lagt i hashtable inden turen kommer til det bagerste.
 ![](https://raw.githubusercontent.com/SelmaMeyer/Billeder_02159/master/queueOK.png)
+
 I dette eksempel **(Eksempel 2)** ligger de to ens værdier for tæt på hinanden. Når alle de forgående request er løst, vil en tråd begynde at arbejde på det første 5, kort efter vil en anden tråd arbejde på det sidste 5. De arbejder altså samtidig på samme problem. Det er den situation vi ønsker at undgå. 
+
 ![](https://raw.githubusercontent.com/SelmaMeyer/Billeder_02159/master/QueueSKOD.png)
 ### Hvordan?
 
@@ -15,7 +17,9 @@ Tanken er, at der i hver request findes et sockArray, der kan indeholde op til 4
 
  **Eksempel 3:** Gammel metode. Alle requests lægges i queue. Hver request har sin egen sock, som int. Man risikerer at to tråde vil arbejde på den samme hash.  
 ![](https://raw.githubusercontent.com/SelmaMeyer/Billeder_02159/master/QueueSock.png)
+
  **Eksempel 4:** Ny metode. Socket fra den nyeste request lægges i sockArray, hos request, hvor hashen er identisk. Den nyeste request lægges IKKE i queue, da den identiske hashs requsest vil indeholde socket og derfor vil sende response til den korrekte sock.
+ 
 ![](https://raw.githubusercontent.com/SelmaMeyer/Billeder_02159/master/QueueSockArray.png)
 
 ### Kode og implementering
