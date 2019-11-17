@@ -6,10 +6,14 @@ The idea of the experiment is to avoid several treads cracking the same hash at 
 
 > In the examples the hashes are replaced with intergers easier readability. 
 
-**Example 1:** 
+**Example 1:** Identical hashes far from each other in the queue is ok.
+
+
 ![](https://raw.githubusercontent.com/SelmaMeyer/Billeder_02159/master/queueOK.png)
 
-**Example 2:**
+**Example 2:** Identical hashes close to each other in the queue, there is a risk that treads will work on the same hash simultaneously. 
+
+
 ![](https://raw.githubusercontent.com/SelmaMeyer/Billeder_02159/master/QueueSKOD.png)
 
 Furthermore we know that the repetition percentage is set to 20%.  
